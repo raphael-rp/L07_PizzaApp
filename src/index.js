@@ -51,10 +51,10 @@ function Menu() {
   )
 }
 
-function Order() {
+function Order({openHour, closeHour}) {
   return (
     <div>
-      <footer className='footer'>We're currently open.</footer>
+      <footer className='footer'>We're open until {closeHour - 12}:00pm. Come visit us or order online.</footer>
       <div className='order'>
         <button className='btn'>Order Now</button>
       </div>
@@ -69,7 +69,7 @@ function Closed({ openHour, closeHour }) {
 }
 
 function Footer() {
-  return isOpen ? <Order /> : <Closed openHour={openHour} closeHour={closeHour} />;
+  return isOpen ? <Order openHour={openHour} closeHour={closeHour} /> : <Closed openHour={openHour} closeHour={closeHour} />;
 }
 
 function App() {
