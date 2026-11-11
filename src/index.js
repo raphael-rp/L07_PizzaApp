@@ -13,13 +13,13 @@ function Header() {
   return <h1 style={{ color: 'orange', fontSize: '48px', textTransform: 'uppercase' }}>Andy's Pizza Co.</h1>;
 }
 
-function Pizza({ name, description, price, imageUrl }) {
+function Pizza({ name, description, price, imageUrl, soldOut}) {
   return (
-    <div className="pizza">
+    <div className={"pizza" + (soldOut ? " sold-out" : "")}>
       <img src={imageUrl} alt={name} />
       <h3>{name}</h3>
       <p>{description}</p>
-      <span>${price.toFixed(2)}</span>
+      {soldOut ? <span>SOLD OUT</span> : <span>${price.toFixed(2)}</span>}
     </div>
   );
 }
@@ -34,6 +34,7 @@ function PizzaList() {
           description={pizza.ingredients}
           price={pizza.price}
           imageUrl={pizza.photoName}
+          soldOut={pizza.soldOut}
         />
       ))}
     </div>
