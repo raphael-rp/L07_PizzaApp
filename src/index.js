@@ -42,11 +42,17 @@ function PizzaList() {
 }
 
 function Menu() {
+  const numOfPizzas = pizzaData.length;
+
   return (
     <div className="menu">
       <h2>Our Menu</h2>
       {isOpen && <p>Authentic Italian Cuisine, all from our stone oven.</p>}
-      <PizzaList />
+      {numOfPizzas > 0 ? (
+        <PizzaList />
+      ) : (
+        <p>We're still working on our menu. Please come back later.</p>
+      )}
     </div>
   )
 }
