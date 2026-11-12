@@ -17,40 +17,51 @@ function Pizza({ name, description, price, imageUrl, soldOut, isPopular }) {
   return (
     <div className={"pizza" + (soldOut ? " sold-out" : "")}>
       <img src={imageUrl} alt={name} />
-      <h3>{name} {isPopular && !soldOut && <span className="badge">Chef's Pick</span>}</h3>
-      <p>{description}</p>
-      {soldOut ? <span>SOLD OUT</span> : <span>${price.toFixed(2)}</span>}
+      <div>
+        <h3>{name} {isPopular && !soldOut && <span className="badge">Chef's Pick</span>}</h3>
+        <p>{description}</p>
+        {soldOut ? <span>SOLD OUT</span> : <span>${price.toFixed(2)}</span>}
+      </div>
     </div>
   );
 }
 
-function PizzaList() {
+function PizzaSection({ title, pizzas }) {
   return (
-    <div className="display">
-      {pizzaData.map((pizza) => (
-        <Pizza
-          key={pizza.name}
-          name={pizza.name}
-          description={pizza.ingredients}
-          price={pizza.price}
-          imageUrl={pizza.photoName}
-          soldOut={pizza.soldOut}
-          isPopular={pizza.isPopular}
-        />
-      ))}
+    <div className="pizza-section">
+      <h2>{title}</h2>
+      <div className="display">
+        {pizzas.map((pizza) => (
+          <Pizza
+            key={pizza.name}
+            name={pizza.name}
+            description={pizza.ingredients}
+            price={pizza.price}
+            imageUrl={pizza.photoName}
+            soldOut={pizza.soldOut}
+            isPopular={pizza.isPopular}
+            category={pizza.category}
+          />
+        ))}
+      </div>
     </div>
   )
 }
 
 function Menu() {
   const numOfPizzas = pizzaData.length;
+  const vegPizzas = pizzaData.filter(pizza => pizza.category === "vegetarian");
+  const meatPizzas = pizzaData.filter(pizza => pizza.category === "meat");
 
   return (
     <div className="menu">
       <h2>Our Menu</h2>
       {isOpen && <p>Authentic Italian Cuisine, all from our stone oven.</p>}
       {numOfPizzas > 0 ? (
-        <PizzaList />
+        <div className="pizza-sections">
+          <PizzaSection title="Vegetarian" pizzas={vegPizzas} />
+          <PizzaSection title="Meat Lovers" pizzas={meatPizzas} />
+        </div>
       ) : (
         <p>We're still working on our menu. Please come back later.</p>
       )}

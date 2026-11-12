@@ -104,11 +104,32 @@ body {
   grid-template-columns: 1fr 1fr;
 }
 
-.pizzas {
-  list-style: none;
+.pizza-section .display {
+  grid-template-columns: 1fr;
+}
+
+.pizza-section {
+  display: flex;
+  flex-direction: column;
+  gap: 4.8rem;
+}
+
+.pizza-section h2 {
+  font-size: 2.4rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 500;
+  border-bottom: 2px solid currentColor;
+  padding-bottom: 0.8rem;
+  align-self: center;
+}
+
+.pizza-sections {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4.8rem;
+  gap: 8rem;
+  width: 100%;
+  align-items: start;
 }
 
 .pizza {
@@ -132,7 +153,6 @@ body {
 .pizza h3 {
   font-size: 2rem;
   font-weight: 400;
-  width: 12rem;
 }
 
 .pizza p {
@@ -140,13 +160,11 @@ body {
   font-weight: 300;
   font-style: italic;
   margin-bottom: auto;
-  width: 10rem;
 }
 
-.pizza > span {
+.pizza div > span {
   display: block;
   font-size: 1.6rem;
-  width: 4rem;
 }
 
 .pizza.sold-out {
@@ -159,17 +177,19 @@ body {
 }
 
 .badge {
-  display: inline-block;
+  display: block;
   padding: 0.2rem 0.6rem;
   border-radius: 999px;
   background-color: #ff6b35;
   color: #fff;
-  font-size: 0.7rem;
+  font-size: 1.1rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
   line-height: 1.4;
   white-space: nowrap;
+  width: fit-content;
+  margin-top: 0.4rem;
 }
 
 /* *************** */

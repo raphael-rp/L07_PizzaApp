@@ -6,6 +6,7 @@ export const pizzaData = [
     photoName: "pizzas/focaccia.jpg",
     soldOut: false,
     isPopular: true,
+    category: "vegetarian",
   },
   {
     name: "Pizza Margherita",
@@ -14,6 +15,7 @@ export const pizzaData = [
     photoName: "pizzas/margherita.jpg",
     soldOut: false,
     isPopular: false,
+    category: "vegetarian",
   },
   {
     name: "Pizza Spinaci",
@@ -22,6 +24,7 @@ export const pizzaData = [
     photoName: "pizzas/spinaci.jpg",
     soldOut: true,
     isPopular: false,
+    category: "vegetarian",
   },
   {
     name: "Pizza Funghi",
@@ -30,6 +33,7 @@ export const pizzaData = [
     photoName: "pizzas/funghi.jpg",
     soldOut: false,
     isPopular: false,
+    category: "vegetarian",
   },
   {
     name: "Pizza Salamino",
@@ -38,6 +42,7 @@ export const pizzaData = [
     photoName: "pizzas/salamino.jpg",
     soldOut: false,
     isPopular: true,
+    category: "meat",
   },
   {
     name: "Pizza Prosciutto",
@@ -46,5 +51,6 @@ export const pizzaData = [
     photoName: "pizzas/prosciutto.jpg",
     soldOut: true,
     isPopular: false,
+    category: "meat",
   },
 ];
